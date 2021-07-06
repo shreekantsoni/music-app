@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <title>music player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <!-- top bar -->
+      <div class="top_bar">
+        <button onclick="sidebar()" id="side"><i class="fa fa-volume-down"></i></button>
+        <div class="options">
+          <div class="left">
+            <!--- song img --->
+            <div class="volume">
+              <p id="volume_show">90</p>
+              <i class="fa fa-volume-up" aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+              <input type="range" min="0" max="100" value="90" onchange="volume_change()" id="volume" />
+            </div>
+          </div>
+        </div>
+
+        <h1 id="text"><i>music-player</i></h1>
+
+        <button onclick="open_p()"><i class="bx bx-menu-alt-left"></i></button>
+
+          <div class="show_song_no" style="margin: 20px; size: 30px;">
+            <p id="present"></p>
+            <p>/</p>
+            <p id="total">16</p>
+          </div>
+      </div>
+
+      <div class="playing_part">
+        <div class="img">
+          <img id="track_image" alt="images" />
+        </div>
+      </div>
+
+      <!-- control part -->
+      <div class="control_part">
+        <div class="song_title">
+          <p id="title">song title</p>
+          <p id="artist">artist name</p>
+        </div>
+
+        <div class="control_buttons">
+          <div class="range_slider">
+            <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()" />
+            <!-- <p>3:00</p> -->
+          </div>
+               <div class="song-timer">
+                   <span class="current-time" id="current-time">0:00</span>
+                   <span class="max-duration" id="max-duration">0:00</span>
+               </div>
+
+          <div class="main_btns">
+            <button id="repeatrs"><i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i></button>
+            <button id="previous" onclick="previous_song()"><i class="bx bx-skip-previous"></i></button>
+            <button onclick="justplay()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button id="next" onclick="next_song()"><i class="bx bx-skip-next"></i></button>
+          </div>
+        </div>
+
+        <button id="auto" onclick="autoplay_switch()">Auto play <i class="fa fa-circle-o-notch" aria-hidden="true"></i></button>
+      </div>
+
+      <!-- playlist songs -->
+      <div class="playlist">
+        <b style="margin-right: 51%; font-size: 20px;"><i> audio-lists <i></b>
+        <!-- <div class="p_song active_song">
+          <p id="p_title">Shri-Ram-Amritwani song</p>
+          <p id="p_artist">Bhakat</p>
+          <button>
+            <i class="bx bx-play"></i>
+             <audio controls>
+                   <source src="horse.mp3" type="audio/mpeg">
+             </audio>
+          </button>
+        </div> -->
+      </div>
+
+      <marquee behavior="scroll" direction="right">Shree Kant <i class="fa fa-music"></i> Music-App</marquee>
+
+    </div>
+
+    <!--  javascript part -->
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
